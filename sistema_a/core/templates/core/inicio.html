@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Sistema A</title></head>
+<body><h1>Sistema A - Control de acceso</h1><p>Usuario: {{ user.username }} | <a href="{% url 'logout' %}">Salir</a></p>
+<h2>Últimos movimientos</h2><table border="1"><tr><th>Patente</th><th>Movimiento</th><th>Fecha</th><th>Autorizado</th></tr>
+{% for acceso in accesos %}<tr><td>{{ acceso.patente }}</td><td>{{ acceso.get_movimiento_display }}</td><td>{{ acceso.fecha_hora }}</td><td>{{ acceso.autorizado|yesno:"Sí,No" }}</td></tr>{% empty %}<tr><td colspan="4">No hay movimientos.</td></tr>{% endfor %}
+</table></body></html>

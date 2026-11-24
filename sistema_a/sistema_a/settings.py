@@ -118,6 +118,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
+LOGIN_URL = '/login/'
 SYSTEM_B_API_URL = 'http://localhost:8001/api/v1/vehicles'
 
 # Default primary key field type

@@ -1,3 +1,7 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
+from .models import AccesoVehicular
 
-# Create your views here.
+@login_required
+def inicio(request):
+    return render(request, 'core/inicio.html', {'accesos': AccesoVehicular.objects.all()[:20]})

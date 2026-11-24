@@ -1,0 +1,6 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8"><title>Sistema B</title></head>
+<body><h1>Sistema B - Registro del condominio</h1><p>Usuario: {{ user.username }} | <a href="{% url 'logout' %}">Salir</a></p>
+<h2>Viviendas y vehículos</h2><table border="1"><tr><th>Piso</th><th>Número</th><th>Propietario</th><th>Vehículos</th></tr>
+{% for vivienda in viviendas %}<tr><td>{{ vivienda.piso }}</td><td>{{ vivienda.numero }}</td><td>{{ vivienda.propietario }}</td><td>{% for vehiculo in vivienda.vehiculos.all %}{{ vehiculo.patente }}{% if not forloop.last %}, {% endif %}{% empty %}Sin vehículos{% endfor %}</td></tr>{% empty %}<tr><td colspan="4">No hay viviendas.</td></tr>{% endfor %}
+</table></body></html>
