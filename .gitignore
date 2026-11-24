@@ -48,3 +48,6 @@ Desktop.ini
 *.log
 *.tmp
 *.temp
+
+# Bases de datos locales de desarrollo
+*.sqlite3
