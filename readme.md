@@ -127,7 +127,10 @@ Se requiere Python y un entorno virtual con Django instalado.
 ```powershell
 python -m venv venv
 .\venv\Scripts\Activate.ps1
-pip install -r requirements.txt
+pip install -r sistema_a/requirements.txt
+
+# El mismo entorno sirve para el sistema B
+pip install -r sistema_b/requirements.txt
 ```
 
 ## Ejecución del sistema B
