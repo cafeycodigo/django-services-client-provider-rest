@@ -26,3 +26,5 @@ npm run build
 Implementa una mejora de contrato y una de interfaz. Por ejemplo, distingue en A la patente desconocida de un fallo remoto y muestra ambos resultados en React. Entrega el diff, un ejemplo de petición y respuesta por caso, y evidencia de la fila persistida. Para automatizar una llamada externa usa un mock que reproduzca éxito, 404 y timeout. Ejecuta los casos sin depender de Internet.
 
 Antes de un despliegue revisa permisos de API v2, CORS y CSRF por proceso, credenciales iniciales, URLs configurables y errores externos. Trabaja con datos ficticios durante la práctica.
+
+Consulta las [propuestas de desarrollo](./propuestas.md) para elegir un trabajo con pasos de implementación y criterios de aceptación.
