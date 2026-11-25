@@ -1,4 +1,6 @@
 from django.db import models
+
+# Modelos del registro de viviendas y vehículos del condominio.
 from django.contrib.auth.models import User
 
 

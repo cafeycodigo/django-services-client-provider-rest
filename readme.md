@@ -131,6 +131,8 @@ pip install -r sistema_a/requirements.txt
 
 # El mismo entorno sirve para el sistema B
 pip install -r sistema_b/requirements.txt
+
+Las APIs se desarrollan utilizando Django REST Framework.
 ```
 
 ## Ejecución del sistema B
@@ -199,3 +201,47 @@ python manage.py migrate
 - No se utilizan formularios personalizados; la administración se realiza mediante modelos y Django Admin.
 - Las bases de datos SQLite locales están excluidas mediante `.gitignore`.
 - En producción, `SECRET_KEY`, `DEBUG`, `ALLOWED_HOSTS` y `SYSTEM_B_API_URL` deben configurarse mediante variables de entorno.
+
+## API v2 para React
+
+El frontend React consume la aplicación `api_v2` del sistema B mediante Django REST Framework.
+
+Base URL:
+
+```text
+http://localhost:8001/api/v2/
+```
+
+Endpoints CRUD:
+
+```text
+GET    /api/v2/viviendas/
+POST   /api/v2/viviendas/
+GET    /api/v2/viviendas/<id>/
+PUT    /api/v2/viviendas/<id>/
+DELETE /api/v2/viviendas/<id>/
+
+GET    /api/v2/vehiculos/
+POST   /api/v2/vehiculos/
+GET    /api/v2/vehiculos/<id>/
+PUT    /api/v2/vehiculos/<id>/
+DELETE /api/v2/vehiculos/<id>/
+```
+
+La aplicación React se encuentra en `frontend/` y administra las viviendas usando estos endpoints. Para instalar las dependencias del backend:
+
+```powershell
+pip install -r sistema_b/requirements.txt
+
+## Frontend del sistema A
+
+El frontend independiente de control de acceso se encuentra en `frontend_a/`. Usa `APIServiceAcceso` para enviar la patente y el movimiento al Sistema A.
+
+```powershell
+cd frontend_a
+npm install
+npm run dev
+```
+
+La pantalla permite registrar una entrada o salida y muestra si el vehículo fue autorizado por el Sistema B.
+```

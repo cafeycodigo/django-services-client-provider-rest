@@ -39,6 +39,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'core',
     'api',
+    'api_test',
+    'api_rick',
+    'api_pokemon',
 ]
 
 MIDDLEWARE = [
@@ -120,6 +123,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 LOGIN_URL = '/login/'
 SYSTEM_B_API_URL = 'http://localhost:8001/api/v1/vehicles'
+SYSTEM_B_TEST_API_URL = 'http://localhost:8001/api/test/provider/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

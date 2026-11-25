@@ -15,14 +15,33 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.contrib.auth import views as auth_views
 from django.urls import include, path
-from core.views import inicio
+from django.contrib.auth import views as auth_views
+from django.views.generic import RedirectView
+from core.views import cerrar_sesion, crear_vehiculo, crear_vivienda, dashboard_comunidad, detalle_vivienda, editar_vivienda, eliminar_vehiculo, eliminar_vivienda, iniciar_sesion, inicio, lista_vehiculos
 
 urlpatterns = [
-    path('', inicio, name='inicio'),
-    path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    # Página principal y autenticación.
+    path('', RedirectView.as_view(url='/comunidad/', permanent=False), name='inicio'),
+    path('comunidad/', dashboard_comunidad, name='comunidad'),
+    path('comunidad/home/', inicio, name='comunidad-home'),
+    path('comunidad/viviendas/', inicio, name='comunidad-viviendas'),
+    path('comunidad/vehiculos/', lista_vehiculos, name='comunidad-vehiculos'),
+    path('comunidad/vehiculo/', lista_vehiculos, name='comunidad-vehiculo'),
+    path('comunidad/viviendas/nueva/', crear_vivienda, name='crear-vivienda'),
+    path('comunidad/viviendas/<int:identificador_vivienda>/', detalle_vivienda, name='detalle-vivienda'),
+    path('comunidad/viviendas/<int:identificador_vivienda>/vehiculos/nuevo/', crear_vehiculo, name='crear-vehiculo'),
+    path('comunidad/viviendas/<int:identificador_vivienda>/editar/', editar_vivienda, name='editar-vivienda'),
+    path('comunidad/viviendas/<int:identificador_vivienda>/eliminar/', eliminar_vivienda, name='eliminar-vivienda'),
+    path('comunidad/vehiculos/<int:identificador_vehiculo>/eliminar/', eliminar_vehiculo, name='eliminar-vehiculo'),
+    path('comunidad/login/', iniciar_sesion, name='login'),
+    path('comunidad/logout/', cerrar_sesion, name='logout'),
     path('admin/', admin.site.urls),
     path('api/v1/', include('api_v1.urls')),
+    path('api/test/', include('api_test.urls')),
+    path('api/rick/', include('api_rick.urls')),
+    path('api/pokemon/', include('api_pokemon.urls')),
+    path('api/calculadora/', include('api_calculadora.urls')),
+    path('api/calculo/', include('api_calculo.urls')),
+    path('api/v2/', include('api_v2.urls')),
 ]

@@ -1,0 +1,20 @@
+:root { font-family: Inter, system-ui, sans-serif; color: #182230; background: #eef3ff; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+.pagina { min-height: 100vh; padding: 64px 6%; }
+.encabezado, .panel { max-width: 980px; margin: auto; }
+.encabezado { margin-bottom: 32px; }
+.encabezado p { color: #3563e9; font-size: .8rem; font-weight: 800; letter-spacing: .12em; }
+.encabezado h1 { font-size: clamp(2rem, 5vw, 3.8rem); margin: 10px 0; }
+.encabezado span, .vacio { color: #687386; }
+.panel { display: grid; grid-template-columns: 340px 1fr; gap: 24px; }
+.tarjeta { padding: 28px; border-radius: 20px; background: white; box-shadow: 0 16px 40px #1f3b7a18; }
+.formulario label { display: block; margin: 18px 0; font-weight: 700; }
+input, select { width: 100%; margin-top: 8px; padding: 13px; border: 1px solid #d5ddeb; border-radius: 9px; font: inherit; }
+button { width: 100%; padding: 13px; border: 0; border-radius: 9px; background: #3563e9; color: white; font-weight: 800; cursor: pointer; }
+button:disabled { opacity: .6; cursor: wait; }
+.alerta { margin-top: 24px; padding: 18px; border-radius: 12px; }
+.alerta p { margin-bottom: 0; line-height: 1.6; }
+.exito { color: #126d3b; background: #e3f7ec; border: 1px solid #a8e2bf; }
+.error { color: #a12536; background: #ffeaed; border: 1px solid #f3b3bc; }
+@media (max-width: 760px) { .panel { grid-template-columns: 1fr; } .pagina { padding: 36px 5%; } }

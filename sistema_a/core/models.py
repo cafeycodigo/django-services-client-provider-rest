@@ -1,4 +1,6 @@
 from django.db import models
+
+# Modelos del control de acceso y perfiles de usuario.
 from django.contrib.auth.models import User
 
 
