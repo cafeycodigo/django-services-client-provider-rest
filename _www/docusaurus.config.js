@@ -3,8 +3,8 @@ const {themes} = require('prism-react-renderer');
 module.exports = {
   title: 'Integración de sistemas',
   tagline: 'Laboratorio de Django, HTTP y React',
-  url: 'http://localhost:8088',
-  baseUrl: '/',
+  url: process.env.DOCUSAURUS_URL || 'http://localhost:8088',
+  baseUrl: `${(process.env.DOCUSAURUS_BASE_PATH || '').replace(/\/+$/, '')}/`,
   onBrokenLinks: 'throw',
   i18n: {defaultLocale: 'es', locales: ['es']},
   presets: [
